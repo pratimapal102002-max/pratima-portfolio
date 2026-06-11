@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pratima Pal — BCA Student & Web Developer. Building responsive, modern web applications with HTML, CSS, JavaScript, PHP, and Git. Check out my portfolio." />
+  <meta name="keywords" content="web developer, BCA student, HTML, CSS, JavaScript, PHP, Git, GitHub, portfolio, freelancer" />
+  <meta name="author" content="Pratima Pal" />
+  <meta property="og:title" content="Pratima Pal — Web Developer & BCA Student" />
+  <meta property="og:description" content="BCA Student & Web Developer | Building Modern Web Applications" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#ff0000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23ff0000' width='100' height='100'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='60' font-weight='bold' fill='white' font-family='Arial'%3EP%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════ PRELOADER ═══════════════════ -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <span class="pre-p">P</span><span class="pre-dot">.</span>
+      </div>
+      <div class="preloader-bar">
+        <div class="preloader-fill"></div>
+      </div>
+      <div class="preloader-text">Loading Portfolio<span class="pre-dots">...</span></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ CURSOR ═══════════════════ -->
+  <div class="cursor-follower" id="cursorFollower"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        Pratima<span class="logo-accent">.</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="#home"         class="nav-link active" data-section="home">Home</a></li>
+          <li><a href="#about"        class="nav-link" data-section="about">About</a></li>
+          <li><a href="#skills"       class="nav-link" data-section="skills">Skills</a></li>
+          <li><a href="#projects"     class="nav-link" data-section="projects">Projects</a></li>
+          <li><a href="#stats"        class="nav-link" data-section="stats">Stats</a></li>
+          <li><a href="#services"     class="nav-link" data-section="services">Services</a></li>
+          <li><a href="#contact"      class="nav-link" data-section="contact">Contact</a></li>
+        </ul>
+        <a href="assets/pratima-pal-resume.pdf" download class="nav-cta btn-red">
+          <i class="fas fa-download"></i> Resume
+        </a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile overlay -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="hero" id="home">
+    <!-- Particle canvas -->
+    <canvas id="heroCanvas" class="hero-canvas"></canvas>
+
+    <!-- Red glow orbs -->
+    <div class="glow-orb orb-1" aria-hidden="true"></div>
+    <div class="glow-orb orb-2" aria-hidden="true"></div>
+
+    <div class="hero-container">
+      <div class="hero-text">
+        <div class="hero-badge" data-aos="fade-down" data-aos-duration="800">
+          <span class="badge-pulse"></span>
+          Available for Freelance & Internships
+        </div>
+
+        <h1 class="hero-title" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+          Hi, I'm<br />
+          <span class="hero-name">Pratima Pal</span>
+        </h1>
+
+        <div class="hero-typed-wrap" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
+          <span class="hero-typed-prefix">I'm a </span>
+          <span class="hero-typed" id="heroTyped"></span>
+          <span class="typed-cursor">|</span>
+        </div>
+
+        <p class="hero-desc" data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">
+          I'm a BCA student and aspiring web developer passionate about building modern, responsive, and user-friendly web applications. Currently creating real-world projects and growing my skills in HTML, CSS, JavaScript, PHP, Git, and GitHub.
+        </p>
+
+        <div class="hero-cta" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
+          <a href="#projects" class="btn-red magnetic-btn">
+            <span>View My Projects</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn-outline magnetic-btn">
+            <span>Get In Touch</span>
+          </a>
+          <a href="https://github.com" target="_blank" rel="noopener" class="btn-outline magnetic-btn">
+            <i class="fab fa-github"></i>
+            <span>Visit GitHub</span>
+          </a>
+        </div>
+
+        <div class="hero-stats" data-aos="fade-up" data-aos-duration="900" data-aos-delay="500">
+          <div class="hero-stat">
+            <span class="stat-count" data-target="5">0</span>
+            <span class="stat-plus">+</span>
+            <span class="stat-label">Projects Done</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="hero-stat">
+            <span class="stat-count" data-target="6">0</span>
+            <span class="stat-plus">+</span>
+            <span class="stat-label">Tech Skills</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="hero-stat">
+            <span class="stat-count" data-target="5">0</span>
+            <span class="stat-plus">+</span>
+            <span class="stat-label">Repositories</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <div class="profile-ring ring-outer"></div>
+        <div class="profile-ring ring-middle"></div>
+        <div class="profile-ring ring-inner"></div>
+
+        <div class="profile-card">
+          <div class="profile-img-wrap">
+            <img
+              src="images/pratima5.png.jpeg"
+              alt="Pratima Pal"
+              class="profile-img"
+              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'360\'%3E%3Crect fill=\'%231a1a1a\' width=\'300\' height=\'360\'/%3E%3Ccircle cx=\'150\' cy=\'130\' r=\'60\' fill=\'%23ff000022\'/%3E%3Ccircle cx=\'150\' cy=\'270\' r=\'90\' fill=\'%23ff000011\'/%3E%3Ctext x=\'50%25\' y=\'52%25\' text-anchor=\'middle\' fill=\'%23ff4d4d\' font-size=\'13\' font-family=\'Poppins,sans-serif\'%3EAdd Your Photo%3C/text%3E%3C/svg%3E'"
+            />
+            <div class="profile-glow"></div>
+          </div>
+        </div>
+
+        <!-- Floating badges -->
+        <div class="float-badge badge-top-right">
+          <i class="fas fa-code"></i>
+          <span>Web Dev</span>
+        </div>
+        <div class="float-badge badge-bottom-left">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </div>
+        <div class="float-badge badge-top-left">
+          <i class="fab fa-js-square"></i>
+          <span>JavaScript</span>
+        </div>
+
+        <!-- Social sidebar -->
+        <div class="hero-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://instagram.com/hey_pratima10" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.fiverr.com/pratimapal962" target="_blank" rel="noopener" aria-label="Fiverr" style="display:flex;align-items:center;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor">
+    <path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-1.33c.05-.388.153-.67.308-.846.155-.176.424-.264.808-.264.31 0 .557.07.742.21.185.14.277.35.277.63 0 .28-.268.27-.805.27zm-7.73 3.706a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zM12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.48 17.4h-1.65v-5.33h-.87v-1.32h.87v-.79c0-.58.152-1.03.456-1.35.304-.32.74-.48 1.307-.48.23 0 .476.026.74.077l-.045 1.38a1.51 1.51 0 0 0-.4-.054c-.197 0-.34.05-.43.148-.09.1-.134.27-.134.514v.555h.9v1.32h-.9V17.4zm3.93 0h-1.65v-6.65h1.65V17.4zm0-7.728h-1.65V8.07h1.65v1.602zm4.7 7.728h-1.612l-1.64-6.65h1.695l.96 4.496.973-4.496H21.1l-1.95 6.65z"/>
+  </svg>
+</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-label="Scroll down">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ ABOUT ═══════════════════ -->
+  <section class="about section-pad" id="about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">Who I <span class="text-red">Am</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-img-side" data-aos="fade-right" data-aos-duration="900">
+          <div class="about-img-frame">
+            <img
+              src="images/pratima5.png.jpeg"
+              alt="Pratima Pal"
+              class="about-img"
+              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'480\'%3E%3Crect fill=\'%231a1a1a\' width=\'400\' height=\'480\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' fill=\'%23ff4d4d\' font-size=\'14\' font-family=\'Poppins,sans-serif\'%3EYour Photo Here%3C/text%3E%3C/svg%3E'"
+            />
+            <div class="about-img-accent"></div>
+            <div class="about-experience-badge">
+              <span class="exp-num">2+</span>
+              <span class="exp-text">Years of<br>Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content-side" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+          <h3 class="about-sub">
+            BCA Student & <span class="text-red">Web Developer</span>
+          </h3>
+          <p class="about-body">
+            I'm Pratima Pal, a passionate BCA student with a deep interest in web development. I specialize in building modern, responsive web applications using HTML, CSS, and JavaScript. Every line of code I write is crafted with intention and best practices in mind.
+          </p>
+          <p class="about-body">
+            Currently expanding my skills through real-world projects and learning PHP, Git, and GitHub for professional development. I'm committed to creating user-friendly web experiences and writing clean, maintainable code that makes a difference.
+          </p>
+          <p class="about-body">
+            My goal is simple: build amazing web applications, contribute to open source, and help businesses establish a strong online presence through quality web development.
+          </p>
+
+          <div class="about-info-grid">
+            <div class="info-item">
+              <span class="info-label">Name</span>
+              <span class="info-value">Pratima Pal</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Role</span>
+              <span class="info-value">Web Developer</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Location</span>
+              <span class="info-value">India 🇮🇳</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Available</span>
+              <span class="info-value text-red">For Projects</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Education</span>
+              <span class="info-value">BCA Student</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">GitHub</span>
+              <a href="https://github.com" target="_blank" rel="noopener" class="info-value info-link">@pratimapal102002-max</a>
+            </div>
+          </div>
+
+          <div class="about-cta">
+            <a href="#contact" class="btn-red magnetic-btn"><span>Let's Collaborate</span><i class="fas fa-arrow-right"></i></a>
+            <a href="assets/pratima-pal-resume.pdf" download class="btn-outline magnetic-btn"><i class="fas fa-download"></i><span>Download Resume</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SKILLS ═══════════════════ -->
+  <section class="skills section-pad" id="skills">
+    <div class="container">
+      <div class="section-header centered" data-aos="fade-up">
+        <span class="section-tag">My Expertise</span>
+        <h2 class="section-title">Technical <span class="text-red">Skills</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="skill-card-icon">
+            <i class="fab fa-html5"></i>
+          </div>
+          <div class="skill-card-info">
+            <div class="skill-name-row">
+              <span class="skill-name">HTML</span>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="85"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="60">
+          <div class="skill-card-icon">
+            <i class="fab fa-css3-alt"></i>
+          </div>
+          <div class="skill-card-info">
+            <div class="skill-name-row">
+              <span class="skill-name">CSS</span>
+              <span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="80"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="120">
+          <div class="skill-card-icon">
+            <i class="fab fa-js-square"></i>
+          </div>
+          <div class="skill-card-info">
+            <div class="skill-name-row">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-pct">75%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="75"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="180">
+          <div class="skill-card-icon">
+            <i class="fab fa-php"></i>
+          </div>
+          <div class="skill-card-info">
+            <div class="skill-name-row">
+              <span class="skill-name">PHP</span>
+              <span class="skill-pct">65%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="65"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="skill-card-icon">
+            <i class="fab fa-git-alt"></i>
+          </div>
+          <div class="skill-card-info">
+            <div class="skill-name-row">
+              <span class="skill-name">Git</span>
+              <span class="skill-pct">72%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="72"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-card-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="skill-card-info">
+            <div class="skill-name-row">
+              <span class="skill-name">GitHub</span>
+              <span class="skill-pct">78%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="78"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="360">
+          <div class="skill-card-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div class="skill-card-info">
+            <div class="skill-name-row">
+              <span class="skill-name">Responsive Design</span>
+              <span class="skill-pct">82%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="82"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="420">
+          <div class="skill-card-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <div class="skill-card-info">
+            <div class="skill-name-row">
+              <span class="skill-name">MySQL</span>
+              <span class="skill-pct">70%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="70"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tool pills -->
+      <div class="tools-row" data-aos="fade-up" data-aos-delay="200">
+        <span class="tool-pill"><i class="fas fa-circle-dot text-red"></i> VS Code</span>
+        <span class="tool-pill"><i class="fas fa-circle-dot text-red"></i> Git & GitHub</span>
+        <span class="tool-pill"><i class="fas fa-circle-dot text-red"></i> MySQL</span>
+        <span class="tool-pill"><i class="fas fa-circle-dot text-red"></i> Figma</span>
+        <span class="tool-pill"><i class="fas fa-circle-dot text-red"></i> Chrome DevTools</span>
+        <span class="tool-pill"><i class="fas fa-circle-dot text-red"></i> Linux Terminal</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ STATS ═══════════════════ -->
+  <section class="stats section-pad" id="stats">
+    <div class="container">
+      <div class="section-header centered" data-aos="fade-up">
+        <span class="section-tag">My Progress</span>
+        <h2 class="section-title">Career <span class="text-red">Stats</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-icon">
+            <i class="fas fa-cube"></i>
+          </div>
+          <div class="stat-value" data-target="5">0</div>
+          <div class="stat-label">Projects Completed</div>
+          <p class="stat-desc">Real-world web applications built with modern tech</p>
+        </div>
+
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="stat-value" data-target="6">0</div>
+          <div class="stat-label">Technologies Learned</div>
+          <p class="stat-desc">HTML, CSS, JS, PHP, Git, GitHub and more</p>
+        </div>
+
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="stat-value" data-target="5">0</div>
+          <div class="stat-label">GitHub Repositories</div>
+          <p class="stat-desc">Open source contributions and personal projects</p>
+        </div>
+
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="stat-value">2<span style="font-size: 0.6em;">+</span></div>
+          <div class="stat-label">Years Experience</div>
+          <p class="stat-desc">Growing my skills through continuous learning</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PROJECTS ═══════════════════ -->
+  <section class="portfolio section-pad" id="projects">
+    <div class="container">
+      <div class="section-header centered" data-aos="fade-up">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">Featured <span class="text-red">Projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="portfolio-grid" id="portfolioGrid">
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="proj-view-btn" target="_blank" rel="noopener" aria-label="Live demo"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com" class="proj-view-btn" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="proj-tag">HTML</span>
+              <span class="proj-tag">CSS</span>
+              <span class="proj-tag">JavaScript</span>
+            </div>
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-desc">A modern, responsive portfolio website showcasing projects and skills. Built with HTML5, CSS3, and vanilla JavaScript with smooth animations.</p>
+            <div class="project-tech">
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">CSS3</span>
+              <span class="tech-badge">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener" class="proj-link btn-red-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://github.com" target="_blank" rel="noopener" class="proj-link proj-link-outline"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="proj-view-btn" target="_blank" rel="noopener" aria-label="Live demo"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com" class="proj-view-btn" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="proj-tag">HTML</span>
+              <span class="proj-tag">CSS</span>
+              <span class="proj-tag">JavaScript</span>
+            </div>
+            <h3 class="project-title">Calculator App</h3>
+            <p class="project-desc">A fully functional calculator application with a clean UI. Supports basic arithmetic operations with keyboard and mouse input support.</p>
+            <div class="project-tech">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS</span>
+              <span class="tech-badge">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener" class="proj-link btn-red-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://github.com" target="_blank" rel="noopener" class="proj-link proj-link-outline"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder">
+              <i class="fas fa-tasks"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="proj-view-btn" target="_blank" rel="noopener" aria-label="Live demo"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com" class="proj-view-btn" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="proj-tag">HTML</span>
+              <span class="proj-tag">CSS</span>
+              <span class="proj-tag">JavaScript</span>
+            </div>
+            <h3 class="project-title">TaskFlow Pro</h3>
+            <p class="project-desc">A task management application with features to create, edit, and delete tasks. Includes local storage for data persistence and a beautiful interface.</p>
+            <div class="project-tech">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS</span>
+              <span class="tech-badge">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener" class="proj-link btn-red-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://github.com" target="_blank" rel="noopener" class="proj-link proj-link-outline"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="proj-view-btn" target="_blank" rel="noopener" aria-label="Live demo"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com" class="proj-view-btn" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="proj-tag">HTML</span>
+              <span class="proj-tag">CSS</span>
+              <span class="proj-tag">JavaScript</span>
+            </div>
+            <h3 class="project-title">ChronoFlow Pro</h3>
+            <p class="project-desc">A time tracking and productivity application. Features include timer, stopwatch, and productivity analytics with detailed time logging.</p>
+            <div class="project-tech">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS</span>
+              <span class="tech-badge">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener" class="proj-link btn-red-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://github.com" target="_blank" rel="noopener" class="proj-link proj-link-outline"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="320">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder">
+              <i class="fas fa-wallet"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="proj-view-btn" target="_blank" rel="noopener" aria-label="Live demo"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com" class="proj-view-btn" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="proj-tag">HTML</span>
+              <span class="proj-tag">CSS</span>
+              <span class="proj-tag">JavaScript</span>
+            </div>
+            <h3 class="project-title">Expense Tracker Pro</h3>
+            <p class="project-desc">An expense tracking application for personal finance management. Track expenses, categorize spending, and visualize financial data with charts.</p>
+            <div class="project-tech">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS</span>
+              <span class="tech-badge">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener" class="proj-link btn-red-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="https://github.com" target="_blank" rel="noopener" class="proj-link proj-link-outline"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-img-wrap">
+            <div class="project-img-placeholder">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-overlay-content">
+                <a href="#" class="proj-view-btn" target="_blank" rel="noopener" aria-label="Live demo"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com" class="proj-view-btn" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="proj-tag">PHP</span>
+              <span class="proj-tag">MySQL</span>
+              <span class="proj-tag">JavaScript</span>
+            </div>
+            <h3 class="project-title">More Projects Coming Soon</h3>
+            <p class="project-desc">Currently working on advanced web applications using PHP, MySQL, and modern JavaScript frameworks to expand my development skills.</p>
+            <div class="project-tech">
+              <span class="tech-badge">PHP</span>
+              <span class="tech-badge">MySQL</span>
+              <span class="tech-badge">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com" target="_blank" rel="noopener" class="proj-link proj-link-outline"><i class="fab fa-github"></i> Explore</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SERVICES ═══════════════════ -->
+  <section class="services section-pad" id="services">
+    <div class="container">
+      <div class="section-header centered" data-aos="fade-up">
+        <span class="section-tag">What I Offer</span>
+        <h2 class="section-title">My <span class="text-red">Services</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-icon-wrap">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+          </div>
+          <h3 class="service-title">Frontend Development</h3>
+          <p class="service-desc">Creating modern, responsive web applications with clean HTML, CSS, and JavaScript code that follows best practices.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Responsive Design</li>
+            <li><i class="fas fa-check"></i> Cross-browser Compatible</li>
+            <li><i class="fas fa-check"></i> Performance Optimized</li>
+            <li><i class="fas fa-check"></i> SEO Friendly</li>
+          </ul>
+          <a href="#contact" class="btn-red service-btn magnetic-btn"><span>Get Started</span><i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-card featured-service" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon-wrap">
+            <div class="service-icon"><i class="fas fa-mobile-screen-button"></i></div>
+          </div>
+          <h3 class="service-title">Responsive Website Design</h3>
+          <p class="service-desc">Building beautiful, mobile-first websites that look perfect on all devices and provide excellent user experience.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Mobile First Approach</li>
+            <li><i class="fas fa-check"></i> Modern UI/UX Design</li>
+            <li><i class="fas fa-check"></i> Touch Optimized</li>
+            <li><i class="fas fa-check"></i> Fast Loading Time</li>
+          </ul>
+          <a href="#contact" class="btn-red service-btn magnetic-btn"><span>Get Started</span><i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon-wrap">
+            <div class="service-icon"><i class="fas fa-rocket"></i></div>
+          </div>
+          <h3 class="service-title">Landing Page Development</h3>
+          <p class="service-desc">High-converting landing pages designed to capture leads and drive user engagement with compelling calls-to-action.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Conversion Optimized</li>
+            <li><i class="fas fa-check"></i> A/B Testing Ready</li>
+            <li><i class="fas fa-check"></i> Analytics Integration</li>
+            <li><i class="fas fa-check"></i> Fast Deployment</li>
+          </ul>
+          <a href="#contact" class="btn-red service-btn magnetic-btn"><span>Get Started</span><i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon-wrap">
+            <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+          </div>
+          <h3 class="service-title">Portfolio Website Development</h3>
+          <p class="service-desc">Professional portfolio websites that showcase your work, skills, and projects to potential clients and employers.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Project Showcase</li>
+            <li><i class="fas fa-check"></i> Contact Integration</li>
+            <li><i class="fas fa-check"></i> SEO Optimized</li>
+            <li><i class="fas fa-check"></i> Easy to Update</li>
+          </ul>
+          <a href="#contact" class="btn-red service-btn magnetic-btn"><span>Get Started</span><i class="fas fa-arrow-right"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+  <section class="testimonials section-pad" id="testimonials">
+    <div class="container">
+      <div class="section-header centered" data-aos="fade-up">
+        <span class="section-tag">Client Reviews</span>
+        <h2 class="section-title">What They <span class="text-red">Say</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="swiper testimonialSwiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
+              <div class="testi-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="testi-text">Pratima built an amazing portfolio website for me. The design is modern and the code is clean and efficient. Highly recommended for web development projects!</p>
+              <div class="testi-author">
+                <div class="testi-avatar">A</div>
+                <div class="testi-info">
+                  <span class="testi-name">Ananya S.</span>
+                  <span class="testi-role">Student</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="testi-card testi-featured">
+              <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
+              <div class="testi-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="testi-text">Excellent developer with strong skills in HTML, CSS, and JavaScript. Very responsive and professional. The website she built for my project was perfect!</p>
+              <div class="testi-author">
+                <div class="testi-avatar">R</div>
+                <div class="testi-info">
+                  <span class="testi-name">Rajesh M.</span>
+                  <span class="testi-role">Business Owner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
+              <div class="testi-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="testi-text">Very talented developer with a good understanding of web design principles. The attention to detail and commitment to quality is impressive!</p>
+              <div class="testi-author">
+                <div class="testi-avatar">K</div>
+                <div class="testi-info">
+                  <span class="testi-name">Karan P.</span>
+                  <span class="testi-role">Tech Mentor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="testi-card">
+              <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
+              <div class="testi-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              </div>
+              <p class="testi-text">Great to work with! Pratima is professional, quick to learn, and delivers quality work. I would definitely hire her again for future projects.</p>
+              <div class="testi-author">
+                <div class="testi-avatar">M</div>
+                <div class="testi-info">
+                  <span class="testi-name">Mehul D.</span>
+                  <span class="testi-role">Freelance Client</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CONTACT ═══════════════════ -->
+  <section class="contact section-pad" id="contact">
+    <div class="container">
+      <div class="section-header centered" data-aos="fade-up">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let's <span class="text-red">Connect</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info-side" data-aos="fade-right" data-aos-duration="900">
+          <h3 class="contact-heading">Have a project in mind?<br><span class="text-red">Let's build it together.</span></h3>
+          <p class="contact-sub">I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+              <div class="ci-body">
+                <span class="ci-label">Email</span>
+                <a href="mailto:pratimapal102002@gmail.com" class="ci-value">pratimapal102002@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><i class="fab fa-github"></i></div>
+              <div class="ci-body">
+                <span class="ci-label">GitHub</span>
+                <a href="https://github.com/pratimapal102002-max" target="_blank" rel="noopener" class="ci-value">@pratimapal102002-max</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><i class="fab fa-linkedin-in"></i></div>
+              <div class="ci-body">
+                <span class="ci-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/pratima-pal-81713a402/" target="_blank" rel="noopener" class="ci-value">Pratima Pal</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="ci-body">
+                <span class="ci-label">Location</span>
+                <span class="ci-value">India 🇮🇳</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-social">
+            <a href="https://github.com" target="_blank" rel="noopener" class="cs-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="cs-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/hey_pratima10" target="_blank" rel="noopener" class="cs-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.fiverr.com" target="_blank" rel="noopener" class="cs-link" aria-label="Fiverr"><i class="fab fa-fiverr"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form-side" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+          <form class="contact-form" id="contactForm" novalidate>
+            <input type="hidden" name="csrf_token" id="csrfToken" value="" />
+            <div style="display:none !important" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-name">Full Name <span class="req">*</span></label>
+                <input type="text" id="f-name" name="name" placeholder="Your name" autocomplete="name" required minlength="2" maxlength="100" />
+                <span class="field-err" id="err-name"></span>
+              </div>
+              <div class="form-group">
+                <label for="f-email">Email Address <span class="req">*</span></label>
+                <input type="email" id="f-email" name="email" placeholder="your@email.com" autocomplete="email" required maxlength="254" />
+                <span class="field-err" id="err-email"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-service">Service Needed</label>
+                <select id="f-service" name="service">
+                  <option value="">Select a service…</option>
+                  <option value="Frontend Development">Frontend Development</option>
+                  <option value="Responsive Website Design">Responsive Website Design</option>
+                  <option value="Landing Page">Landing Page Development</option>
+                  <option value="Portfolio Website">Portfolio Website Development</option>
+                  <option value="Other">Other / Consultation</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="f-budget">Budget Range</label>
+                <select id="f-budget" name="budget">
+                  <option value="">Select budget…</option>
+                  <option value="Under ₹5,000">Under ₹5,000</option>
+                  <option value="₹5,000 – ₹15,000">₹5,000 – ₹15,000</option>
+                  <option value="₹15,000 – ₹50,000">₹15,000 – ₹50,000</option>
+                  <option value="₹50,000+">₹50,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="f-subject">Subject <span class="req">*</span></label>
+              <input type="text" id="f-subject" name="subject" placeholder="What's this about?" required minlength="3" maxlength="200" />
+              <span class="field-err" id="err-subject"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="f-message">Message <span class="req">*</span></label>
+              <textarea id="f-message" name="message" placeholder="Tell me about your project requirements, timeline…" rows="5" required minlength="10" maxlength="5000"></textarea>
+              <span class="field-err" id="err-message"></span>
+            </div>
+
+            <button type="submit" class="btn-red form-submit-btn" id="formSubmitBtn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loader" style="display:none"><i class="fas fa-circle-notch fa-spin"></i> Sending…</span>
+              <i class="fas fa-paper-plane btn-icon"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Success/Error Toast -->
+  <div class="toast-popup" id="toastPopup" role="alert" aria-live="assertive">
+    <div class="toast-inner">
+      <div class="toast-icon" id="toastIcon"></div>
+      <div class="toast-body">
+        <strong id="toastTitle"></strong>
+        <span id="toastMsg"></span>
+      </div>
+      <button class="toast-close" id="toastClose" aria-label="Close notification"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="footer-logo">Pratima<span class="logo-accent">.</span></div>
+          <p class="footer-tagline">BCA Student & Web Developer</p>
+          <p class="footer-location"><i class="fas fa-map-marker-alt text-red"></i> India 🇮🇳 · Available Worldwide</p>
+          <div class="footer-social">
+            <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/hey_pratima10" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.fiverr.com" target="_blank" rel="noopener" aria-label="Fiverr"><i class="fab fa-fiverr"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul>
+            <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+            <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
+            <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+            <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+            <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Services</h4>
+          <ul>
+            <li><a href="#services"><i class="fas fa-chevron-right"></i> Frontend Development</a></li>
+            <li><a href="#services"><i class="fas fa-chevron-right"></i> Responsive Design</a></li>
+            <li><a href="#services"><i class="fas fa-chevron-right"></i> Landing Pages</a></li>
+            <li><a href="#services"><i class="fas fa-chevron-right"></i> Portfolio Sites</a></li>
+            <li><a href="#contact"><i class="fas fa-chevron-right"></i> Web Consultation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact-col">
+          <h4 class="footer-col-title">Contact</h4>
+          <div class="footer-contact-items">
+            <div class="fci">
+              <i class="fas fa-envelope text-red"></i>
+              <a href="mailto:pratimapal102002@gmail.com">pratimapal102002@gmail.com</a>
+            </div>
+            <div class="fci">
+              <i class="fab fa-github text-red"></i>
+              <a href="https://github.com" target="_blank" rel="noopener">pratimapal102002-max</a>
+            </div>
+            <div class="fci">
+              <i class="fas fa-map-marker-alt text-red"></i>
+              <span>India 🇮🇳</span>
+            </div>
+          </div>
+          <a href="#contact" class="footer-hire-btn btn-red magnetic-btn">
+            <span>Start a Project</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="copyrightYear"></span> Pratima Pal · All Rights Reserved</p>
+        <p>Designed & Built with <span class="text-red">♥</span> by Pratima Pal</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Swiper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
