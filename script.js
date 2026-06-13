@@ -637,9 +637,25 @@
 
 
 /* ──────────────────────────────────────────────────────────
-   15. CONTACT FORM
+   15. CONTACT FORM — Web3Forms
+   ▸ Root cause of the original error:
+     The form was POSTing to contact.php which GitHub Pages
+     returns 405 Method Not Allowed for (static host, no PHP).
+   ▸ Fix: replaced fetch('contact.php', …) with a POST to
+     https://api.web3forms.com/submit — a free, no-backend
+     email service that works on any static host.
+   ▸ Steps to activate:
+     1. Go to https://web3forms.com
+     2. Enter your email → click "Create Access Key"
+     3. Copy the key and paste it into WEB3FORMS_ACCESS_KEY below
+     4. Save and deploy — done.
 ────────────────────────────────────────────────────────── */
 (function initContactForm() {
+
+  /* ── ✏️  PASTE YOUR WEB3FORMS ACCESS KEY HERE ─────────── */
+  const WEB3FORMS_ACCESS_KEY = '75a6ce2a-c1a4-490e-ba73-488e0d4189db';
+  /* ──────────────────────────────────────────────────────── */
+
   const form      = document.getElementById('contactForm');
   const submitBtn = document.getElementById('formSubmitBtn');
   const btnText   = submitBtn  && submitBtn.querySelector('.btn-text');
@@ -648,12 +664,7 @@
 
   if (!form) return;
 
-  const csrfInput = document.getElementById('csrfToken');
-  if (csrfInput && !csrfInput.value) {
-    csrfInput.value = [...crypto.getRandomValues(new Uint8Array(18))]
-      .map(b => b.toString(16).padStart(2, '0')).join('');
-  }
-
+  /* ── Validators ──────────────────────────────────────── */
   const validators = {
     name(v)    { return v.trim().length >= 2 ? '' : 'Please enter your full name (min 2 characters).'; },
     email(v)   { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Please enter a valid email address.'; },
@@ -703,11 +714,12 @@
     return valid;
   }
 
+  /* ── Toast ───────────────────────────────────────────── */
   function showToast(type, title, msg) {
-    const toast     = document.getElementById('toastPopup');
-    const toastIcon = document.getElementById('toastIcon');
-    const toastTitle= document.getElementById('toastTitle');
-    const toastMsg  = document.getElementById('toastMsg');
+    const toast      = document.getElementById('toastPopup');
+    const toastIcon  = document.getElementById('toastIcon');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastMsg   = document.getElementById('toastMsg');
     if (!toast) return;
 
     toastIcon.className  = 'toast-icon ' + type;
@@ -718,7 +730,6 @@
     toastMsg.textContent   = msg;
 
     toast.classList.add('show');
-
     setTimeout(() => toast.classList.remove('show'), 6000);
   }
 
@@ -727,6 +738,15 @@
     document.getElementById('toastPopup').classList.remove('show');
   });
 
+  /* ── Loading state helpers ───────────────────────────── */
+  function setLoading(on) {
+    submitBtn.disabled = on;
+    if (btnText)   btnText.style.display   = on ? 'none'         : '';
+    if (btnLoader) btnLoader.style.display = on ? 'inline-flex'  : 'none';
+    if (btnIcon)   btnIcon.style.display   = on ? 'none'         : '';
+  }
+
+  /* ── Submit handler ──────────────────────────────────── */
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -736,43 +756,59 @@
       return;
     }
 
-    submitBtn.disabled    = true;
-    if (btnText)   btnText.style.display   = 'none';
-    if (btnLoader) btnLoader.style.display = 'inline-flex';
-    if (btnIcon)   btnIcon.style.display   = 'none';
+    /* Guard: remind developer to add the access key */
+    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+      showToast('error', 'Setup Required',
+        'Please add your Web3Forms access key in script.js to enable the contact form.');
+      return;
+    }
+
+    setLoading(true);
 
     try {
-      const formData = new FormData(form);
+      /* Build a plain JSON payload for Web3Forms */
+      const name    = document.getElementById('f-name').value.trim();
+      const email   = document.getElementById('f-email').value.trim();
+      const subject = document.getElementById('f-subject').value.trim();
+      const message = document.getElementById('f-message').value.trim();
+      const service = document.getElementById('f-service') ? document.getElementById('f-service').value : '';
+      const budget  = document.getElementById('f-budget')  ? document.getElementById('f-budget').value  : '';
 
-      const response = await fetch('contact.php', {
+      const payload = {
+        access_key:   WEB3FORMS_ACCESS_KEY,
+        subject:      `[Portfolio] ${subject}`,
+        from_name:    name,
+        email:        email,
+        message:      [
+          message,
+          service ? `\nService: ${service}` : '',
+          budget  ? `\nBudget: ${budget}`   : '',
+        ].join(''),
+        /* Honeypot — Web3Forms will silently drop spam */
+        botcheck: '',
+      };
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method:  'POST',
-        headers: { 'X-Requested-With': 'XMLHttpRequest' },
-        body:    formData,
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify(payload),
       });
-
-      if (!response.ok) throw new Error('Network error: ' + response.status);
 
       const data = await response.json();
 
       if (data.success) {
-        showToast('success', 'Message Sent! 🎉', data.message || 'I\'ll get back to you within 24 hours.');
+        showToast('success', 'Message Sent! 🎉', "Thanks for reaching out — I'll get back to you within 24 hours.");
         form.reset();
-        if (csrfInput) {
-          csrfInput.value = [...crypto.getRandomValues(new Uint8Array(18))]
-            .map(b => b.toString(16).padStart(2, '0')).join('');
-        }
       } else {
+        /* Web3Forms returns a human-readable message on failure */
         showToast('error', 'Failed to Send', data.message || 'Something went wrong. Please try again.');
       }
 
     } catch (err) {
-      console.error('Form error:', err);
-      showToast('error', 'Connection Error', 'Could not reach the server. Please email me directly.');
+      console.error('Form submission error:', err);
+      showToast('error', 'Connection Error', 'Network issue — please try again or email me directly.');
     } finally {
-      submitBtn.disabled    = false;
-      if (btnText)   btnText.style.display   = '';
-      if (btnLoader) btnLoader.style.display = 'none';
-      if (btnIcon)   btnIcon.style.display   = '';
+      setLoading(false);
     }
   });
 })();
